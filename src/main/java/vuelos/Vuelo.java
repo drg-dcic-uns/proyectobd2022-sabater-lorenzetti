@@ -28,7 +28,6 @@ public class Vuelo {
 				try {
 					
 					logger.debug("Se inicia la aplicación.");
-					
 					ModeloLogin modelo = new ModeloLoginImpl();  
 					VentanaLogin ventana = new VentanaLoginImpl();
 					@SuppressWarnings("unused")
