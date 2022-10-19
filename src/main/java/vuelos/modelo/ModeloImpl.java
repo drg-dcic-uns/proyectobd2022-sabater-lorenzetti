@@ -26,7 +26,7 @@ public class ModeloImpl implements Modelo {
 	public boolean conectar(String username, String password) {
 		logger.info("Se establece la conexión a la BD.");
 		conexion = Conexion.getConnection(username, password);            
-    	return conexion!= null; 
+    	return conexion != null; 
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package vuelos.controlador;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
@@ -296,7 +297,8 @@ public class ControladorEmpleadoImpl implements ControladorEmpleado {
 	}
 	
 	@Override
-	public void vueloSeleccionado() {
+	// NOTAS aca me pidio el tro
+	public void vueloSeleccionado() throws SQLException {
 		logger.info("Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.");
 		/*
 		 * Se debe validar que todos los valores han sido seleccionados, es decir,

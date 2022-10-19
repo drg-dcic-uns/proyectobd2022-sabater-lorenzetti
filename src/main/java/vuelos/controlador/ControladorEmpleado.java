@@ -1,5 +1,6 @@
 package vuelos.controlador;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 import vuelos.modelo.empleado.beans.DetalleVueloBean;
@@ -97,9 +98,10 @@ public interface ControladorEmpleado extends ControladorVuelo {
 	 * Informa al controlador que se ha realizado la seleccion de vuelos que desea reservar. 
 	 * 
 	 * Internamente el controlador guarda los objetos seleccionados.
+	 * @throws SQLException 
 	 *
 	 */
-	public void vueloSeleccionado();
+	public void vueloSeleccionado() throws SQLException;
 
 	/**
 	 * Informa al controlador que se desea buscar los datos del pasajero. 

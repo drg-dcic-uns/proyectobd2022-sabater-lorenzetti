@@ -1,5 +1,6 @@
 package vuelos.modelo.empleado;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -64,8 +65,9 @@ public interface ModeloEmpleado extends Modelo {
 	 * Recupera los tipos de DNI validos para realizar una reserva
 	 * 
 	 * @return
+	 * @throws SQLException 
 	 */
-	public ArrayList<String> obtenerTiposDocumento();
+	public ArrayList<String> obtenerTiposDocumento() throws SQLException;
 
 	/**
 	 * Busca un pasajero en funcion del tipo y nro de documento  

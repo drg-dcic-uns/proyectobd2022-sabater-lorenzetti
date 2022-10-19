@@ -15,6 +15,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -1138,7 +1139,12 @@ public class VentanaEmpleadoImpl extends JFrame implements VentanaEmpleado {
 		btnReservar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controlador.vueloSeleccionado();
+				try {
+					controlador.vueloSeleccionado();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -1376,13 +1382,18 @@ public class VentanaEmpleadoImpl extends JFrame implements VentanaEmpleado {
 				controlador.limpiarSeleccion();
 			}
 		});
-				
+		//NOTA aca me pidio el try catch
 		JButton btnReservar = new JButton("Confirmar Selección");
 		btnReservar.setToolTipText("Confirma que desea reservar los vuelos seleccionados y pasa a completar datos.");
 		btnReservar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controlador.vueloSeleccionado();
+				try {
+					controlador.vueloSeleccionado();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			
 			}
 		});
