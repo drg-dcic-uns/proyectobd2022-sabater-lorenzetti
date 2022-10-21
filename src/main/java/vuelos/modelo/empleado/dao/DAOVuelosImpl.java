@@ -39,20 +39,42 @@ public class DAOVuelosImpl implements DAOVuelos {
 	@Override
 	public ArrayList<InstanciaVueloBean> recuperarVuelosDisponibles(Date fechaVuelo, UbicacionesBean origen, UbicacionesBean destino)  throws Exception {		
 		//Datos estáticos de prueba. Quitar y reemplazar por código que recupera los datos reales.
-		ArrayList<InstanciaVueloBean> resultado = DAOVuelosDatosPrueba.generarVuelos(fechaVuelo);  
+		ArrayList<InstanciaVueloBean> resultado = new ArrayList<InstanciaVueloBean>();  
 		ResultSet rs = null;
+		ResultSet rsa = null;
 		String sql = "";
 		Statement select = conexion.createStatement();
 		rs = select.executeQuery(sql);
 		while(rs.next()) {
 			InstanciaVueloBean aux = new InstanciaVueloBeanImpl();
-			aux.setNroVuelo(rs.getString("numero"));
+			//Aeropuerto de Salida
+			AeropuertoBean salida = new AeropuertoBeanImpl();
+			salida.setCodigo(rs.getString("codigo_aero_sale"));
+			salida.setNombre(rs.getString("nombre_aero_sale"));
+			String aeropuertos = ""; //Consigo telefo y direccion
+			rsa = select.executeQuery(aeropuertos);
+			salida.setTelefono(rsa.getString("telefono"));
+			salida.setDireccion(rsa.getString("direccion"));
+			salida.setUbicacion(origen);
+			//Aeropuerto de llegada
+			AeropuertoBean llegada = new AeropuertoBeanImpl();
+			llegada.setCodigo(rs.getString("codigo_aero_sale"));
+			llegada.setNombre(rs.getString("nombre_aero_sale"));
+			aeropuertos = ""; //Consigo telefo y direccion
+			rsa = select.executeQuery(aeropuertos);
+			llegada.setTelefono(rsa.getString("telefono"));
+			llegada.setDireccion(rsa.getString("direccion"));
+			llegada.setUbicacion(destino);
+			//Instancia de vuelos
+			aux.setNroVuelo(rs.getString("nro_vuelo"));
 			aux.setModelo(rs.getString("modelo"));
-			aux.setDiaSalida(rs.getString("dia"));
+			aux.setDiaSalida(rs.getString("dia_sale"));
 			aux.setHoraSalida(rs.getTime("hora_sale"));
 			aux.setHoraLlegada(rs.getTime("hora_llega"));
-			//Tiempo estimado?
+			aux.setTiempoEstimado(rs.getTime("tiempo_estimado"));
 			aux.setFechaVuelo(rs.getDate("fecha"));
+			aux.setAeropuertoLlegada(llegada);
+			aux.setAeropuertoSalida(salida);
 			resultado.add(aux);
 		}
 		return resultado;
@@ -69,14 +91,17 @@ public class DAOVuelosImpl implements DAOVuelos {
 	@Override
 	public ArrayList<DetalleVueloBean> recuperarDetalleVuelo(InstanciaVueloBean vuelo) throws Exception {
 		//Datos estáticos de prueba. Quitar y reemplazar por código que recupera los datos reales.
-		ArrayList<DetalleVueloBean> resultado = DAOVuelosDatosPrueba.generarDetalles(vuelo);
+		ArrayList<DetalleVueloBean> resultado = new ArrayList<DetalleVueloBean>();
 		ResultSet rs = null;
 		String sql = "";
 		Statement select = conexion.createStatement();
 		rs = select.executeQuery(sql);
 		while(rs.next()) {
 			DetalleVueloBean aux = new DetalleVueloBeanImpl();
-			
+			aux.setVuelo(vuelo);
+			aux.setAsientosDisponibles(rs.getInt("asientos_disponibles"));
+			aux.setClase(rs.getString("clase"));
+			aux.setPrecio(rs.getFloat("precio"));
 			resultado.add(aux);
 		}
 		return resultado; 
