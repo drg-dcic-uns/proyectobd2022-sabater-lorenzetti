@@ -2,6 +2,7 @@ package vuelos.modelo.empleado.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,6 +19,7 @@ import vuelos.modelo.empleado.beans.InstanciaVueloBeanImpl;
 import vuelos.modelo.empleado.beans.UbicacionesBean;
 import vuelos.modelo.empleado.beans.UbicacionesBeanImpl;
 import vuelos.modelo.empleado.dao.datosprueba.DAOVuelosDatosPrueba;
+import vuelos.utils.*;
 
 public class DAOVuelosImpl implements DAOVuelos {
 
@@ -35,50 +37,49 @@ public class DAOVuelosImpl implements DAOVuelos {
 	 *      
 	 *      Nota: para acceder a la B.D. utilice la propiedad "conexion" que ya tiene una conexión
 	 *      establecida con el servidor de B.D. (inicializada en el constructor DAOVuelosImpl(...)).  
+	 * @throws SQLException 
 	 */
-	@Override
+	
+	
+	private AeropuertoBean conseguirAeropuerto(String codigo,UbicacionesBean ubi) throws SQLException {
+		AeropuertoBean aero = new AeropuertoBeanImpl();
+		logger.info("{}", codigo);
+		String sql = "SELECT telefono,direccion,nombre FROM aeropuertos WHERE codigo='"+codigo+"';";
+		ResultSet r = null;
+		Statement s = conexion.createStatement();
+		r = s.executeQuery(sql);
+		if(r.next()) {
+			aero.setCodigo(codigo);
+			aero.setNombre(r.getString("nombre"));
+			aero.setDireccion(r.getString("direccion"));
+			aero.setTelefono(r.getString("telefono"));
+			aero.setUbicacion(ubi);
+		}
+		return aero;
+	}
+	
 	public ArrayList<InstanciaVueloBean> recuperarVuelosDisponibles(Date fechaVuelo, UbicacionesBean origen, UbicacionesBean destino)  throws Exception {		
 		//Datos estáticos de prueba. Quitar y reemplazar por código que recupera los datos reales.
 		ArrayList<InstanciaVueloBean> resultado = new ArrayList<InstanciaVueloBean>();  
 		ResultSet rs = null;
-		ResultSet rsa = null;
-		String sql = "";
+		Fechas f = new Fechas();
+		String sql = "SELECT codigo_aero_sale,nombre_aero_sale,codigo_aero_llega,nombre_aero_llega,nro_vuelo,modelo,dia_sale,hora_sale,hora_llega,tiempo_estimado,fecha,ciudad_llega,ciudad_sale,estado_sale,estado_llega FROM vuelos_disponibles WHERE fecha='"+f.convertirDateAStringDB(fechaVuelo)+"' AND ciudad_llega='"+destino.getCiudad()+"' AND ciudad_sale='"+origen.getCiudad()+"' AND estado_llega='"+destino.getEstado()+"' AND estado_sale='"+origen.getEstado()+"';";
 		Statement select = conexion.createStatement();
 		rs = select.executeQuery(sql);
 		while(rs.next()) {
 			InstanciaVueloBean aux = new InstanciaVueloBeanImpl();
-			//Aeropuerto de Salida
-			AeropuertoBean salida = new AeropuertoBeanImpl();
-			salida.setCodigo(rs.getString("codigo_aero_sale"));
-			salida.setNombre(rs.getString("nombre_aero_sale"));
-			String aeropuertos = ""; //Consigo telefo y direccion
-			rsa = select.executeQuery(aeropuertos);
-			salida.setTelefono(rsa.getString("telefono"));
-			salida.setDireccion(rsa.getString("direccion"));
-			salida.setUbicacion(origen);
-			//Aeropuerto de llegada
-			AeropuertoBean llegada = new AeropuertoBeanImpl();
-			llegada.setCodigo(rs.getString("codigo_aero_sale"));
-			llegada.setNombre(rs.getString("nombre_aero_sale"));
-			aeropuertos = ""; //Consigo telefo y direccion
-			rsa = select.executeQuery(aeropuertos);
-			llegada.setTelefono(rsa.getString("telefono"));
-			llegada.setDireccion(rsa.getString("direccion"));
-			llegada.setUbicacion(destino);
-			//Instancia de vuelos
 			aux.setNroVuelo(rs.getString("nro_vuelo"));
 			aux.setModelo(rs.getString("modelo"));
 			aux.setDiaSalida(rs.getString("dia_sale"));
 			aux.setHoraSalida(rs.getTime("hora_sale"));
 			aux.setHoraLlegada(rs.getTime("hora_llega"));
 			aux.setTiempoEstimado(rs.getTime("tiempo_estimado"));
-			aux.setFechaVuelo(rs.getDate("fecha"));
-			aux.setAeropuertoLlegada(llegada);
-			aux.setAeropuertoSalida(salida);
+			aux.setFechaVuelo(f.convertirDateADateSQL(fechaVuelo));
+			aux.setAeropuertoLlegada(conseguirAeropuerto(rs.getString("codigo_aero_llega"),destino));
+			aux.setAeropuertoSalida(conseguirAeropuerto(rs.getString("codigo_aero_sale"),origen));
 			resultado.add(aux);
 		}
 		return resultado;
-		// Fin datos estáticos de prueba.
 	}
 	
 	/** 
@@ -93,7 +94,7 @@ public class DAOVuelosImpl implements DAOVuelos {
 		//Datos estáticos de prueba. Quitar y reemplazar por código que recupera los datos reales.
 		ArrayList<DetalleVueloBean> resultado = new ArrayList<DetalleVueloBean>();
 		ResultSet rs = null;
-		String sql = "";
+		String sql = "SELECT precio,asientos_disponibles,clase FROM vuelos_disponibles WHERE nro_vuelo='"+vuelo.getNroVuelo()+"'; ";
 		Statement select = conexion.createStatement();
 		rs = select.executeQuery(sql);
 		while(rs.next()) {

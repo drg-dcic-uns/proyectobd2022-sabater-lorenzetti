@@ -263,7 +263,7 @@ CREATE TABLE brinda(
 )ENGINE=InnoDB;
 
 CREATE TABLE reserva_vuelo_clase(
-	numero INT unsigned NOT NULL AUTO_INCREMENT/*No va autoincrement?*/,
+	numero INT unsigned NOT NULL AUTO_INCREMENT,
 	vuelo VARCHAR(10) NOT NULL,
 	fecha_vuelo DATE NOT NULL,
 	clase VARCHAR(20) NOT NULL,
@@ -293,6 +293,7 @@ SELECT 	salidas.vuelo AS "nro_vuelo",
 		salidas.dia AS "dia_sale",
 		salidas.hora_sale AS "hora_sale",
 		salidas.hora_llega AS "hora_llega",
+		
 		TIMEDIFF(salidas.hora_llega,salidas.hora_sale) AS "tiempo_estimado",
 
 		s.codigo AS "codigo_aero_sale",
@@ -308,16 +309,12 @@ SELECT 	salidas.vuelo AS "nro_vuelo",
 		l.pais AS "pais_llega",
 
 		brinda.precio AS "precio",
-		round(((brinda.cant_asientos + (clases.porcentaje*brinda.cant_asientos))-asientos.cantidad)) AS "asientos_disponibles",
+		round(((brinda.cant_asientos + clases.porcentaje*brinda.cant_asientos)-asientos_reservados.cantidad)) AS "asientos_disponibles",
 		clases.nombre AS "clase"
 
-FROM 	(salidas NATURAL JOIN instancias_vuelo),
-		((aeropuertos AS  s  JOIN aeropuertos AS l) JOIN
-			vuelos_programados AS v_programados ON v_programados.aeropuerto_salida=s.codigo and v_programados.aeropuerto_llegada=l.codigo),
-		(brinda JOIN clases JOIN asientos_reservados)
-
-WHERE 	(salidas.vuelo=v_programados.numero) and
-		(brinda.clase=clases.nombre and asientos_reservados.clase=clases.nombre and salidas.vuelo=brinda.vuelo);
+FROM 	(((((instancias_vuelo NATURAL JOIN salidas) JOIN vuelos_programados on vuelos_programados.numero=salidas.vuelo)
+			JOIN aeropuertos as s on s.codigo = vuelos_programados.aeropuerto_salida) JOIN aeropuertos as l on l.codigo = vuelos_programados.aeropuerto_llegada)
+			NATURAL JOIN brinda JOIN clases on clases.nombre = brinda.clase) NATURAL JOIN asientos_reservados;
 #---------------------------------------------------------------------------------------------------------------------
 #USUARIOS 
 

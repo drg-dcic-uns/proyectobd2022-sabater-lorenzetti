@@ -63,9 +63,10 @@ public class ModeloEmpleadoImpl extends ModeloImpl implements ModeloEmpleado {
 		logger.info("Se intenta autenticar el legajo {} con password {}", legajo, password);
 		ResultSet rs = null;
 		int l = Integer.valueOf(legajo);
-		String sql = "SELECT legajo,password FROM empleados where legajo = "+l+" AND password='"+password+"';";
+		String sql = "SELECT legajo,password FROM empleados where legajo = '"+l+"' AND password=md5('"+password+"');";
 		Statement select = conexion.createStatement();
 		rs = select.executeQuery(sql);
+		this.legajo = l;
 		return rs.next();
 	}
 	/** 
@@ -120,7 +121,7 @@ public class ModeloEmpleadoImpl extends ModeloImpl implements ModeloEmpleado {
 		logger.info("recupera las ciudades que tienen aeropuertos.");	
 		ArrayList<UbicacionesBean> ubicaciones = new ArrayList<UbicacionesBean>();
 		ResultSet rs = null;
-		String sql = "SELECT doc_tipo FROM empleados";
+		String sql = "SELECT * FROM ubicaciones";
 		Statement select = conexion.createStatement();
 		rs = select.executeQuery(sql);
 		while(rs.next()) {
@@ -132,11 +133,11 @@ public class ModeloEmpleadoImpl extends ModeloImpl implements ModeloEmpleado {
 			ubicaciones.add(aux);
 		}
 		// Datos estáticos de prueba. Quitar y reemplazar por código que recupera las ubicaciones de la B.D. en una lista de UbicacionesBean		 
-		DAOUbicacionesDatosPrueba.poblar();
-		ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("bsas"));
-		ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("chicago"));
-		ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("barcelona"));
-		ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("cordoba"));	
+		//DAOUbicacionesDatosPrueba.poblar();
+		//ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("bsas"));
+		//ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("chicago"));
+		//ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("barcelona"));
+		//ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("cordoba"));	
 		// Fin datos estáticos de prueba.
 	
 		return ubicaciones;

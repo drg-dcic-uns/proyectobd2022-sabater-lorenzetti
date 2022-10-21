@@ -40,11 +40,11 @@ INSERT INTO vuelos.pasajeros (doc_nro,doc_tipo,apellido,nombre,direccion,telefon
 INSERT INTO vuelos.pasajeros (doc_nro,doc_tipo,apellido,nombre,direccion,telefono,nacionalidad) VALUES(44461982,"DNI","Garcia Rossi","Solana","Misioneros 1154","155727552","Argentina");
 
 #Empleados
-INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126691,"empleado-empleado-numero-1234-01",23567189,"DNI","Perez","Jose Esteban","Gonzales Chaves 345","156787842");
-INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126692,"empleado-empleado-numero-1234-02",24517190,"DNI","Fernandez","Facundo","Ing. Luigi 29","154236789");
-INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126693,"empleado-empleado-numero-1234-03",25537191,"DNI","Gil","German","Charcas 5426","154927589");
-INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126694,"empleado-empleado-numero-1234-04",26557192,"DNI","Gutierrez","Laura Maria","Yrigoyen 74","156117788");
-INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126695,"empleado-empleado-numero-1234-05",27577193,"DNI","Alfonso","Mariela","Paunero 244","154285826");
+INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126691,md5("ps-empleado-01"),23567189,"DNI","Perez","Jose Esteban","Gonzales Chaves 345","156787842");
+INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126692,md5("ps-empleado-02"),24517190,"DNI","Fernandez","Facundo","Ing. Luigi 29","154236789");
+INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126693,md5("ps-empleado-03"),25537191,"DNI","Gil","German","Charcas 5426","154927589");
+INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126694,md5("ps-empleado-04"),26557192,"DNI","Gutierrez","Laura Maria","Yrigoyen 74","156117788");
+INSERT INTO vuelos.empleados (legajo,password,doc_nro,doc_tipo,apellido,nombre,direccion,telefono) VALUES(126695,md5("ps-empleado-05"),27577193,"DNI","Alfonso","Mariela","Paunero 244","154285826");
 
 #Reservas
 INSERT INTO vuelos.reservas (fecha, vencimiento, estado, doc_nro, doc_tipo, legajo) VALUES("2022/1/2","2022/2/2","confirmada",42293176,"DNI",126691);
@@ -69,21 +69,21 @@ INSERT INTO vuelos.vuelos_programados (numero,aeropuerto_salida,aeropuerto_llega
 INSERT INTO vuelos.vuelos_programados (numero,aeropuerto_salida,aeropuerto_llegada) VALUES("M02","291","295");
 INSERT INTO vuelos.vuelos_programados (numero,aeropuerto_salida,aeropuerto_llegada) VALUES("PM01","296","292");
 
-#Salidas NO TIENE DATOS
+#Salidas
 INSERT INTO vuelos.salidas (hora_sale,hora_llega,dia,vuelo,modelo_avion) VALUES("03:00:00","08:30:00","Do","M01","A320");
 INSERT INTO vuelos.salidas (hora_sale,hora_llega,dia,vuelo,modelo_avion) VALUES("01:00:00","06:45:00","Do","BA01","Boeing 777");
 INSERT INTO vuelos.salidas (hora_sale,hora_llega,dia,vuelo,modelo_avion) VALUES("07:30:00","12:20:00","Ma","SJ01","Boeing 787");
 INSERT INTO vuelos.salidas (hora_sale,hora_llega,dia,vuelo,modelo_avion) VALUES("05:00:00","09:30:00","Ju","M02","A320");
 INSERT INTO vuelos.salidas (hora_sale,hora_llega,dia,vuelo,modelo_avion) VALUES("02:15:00","10:30:00","Vi","PM01","A380");
 
-#Instancia Vuelos NO TIENE DATOS
+#Instancia
 INSERT INTO vuelos.instancias_vuelo (vuelo,fecha,dia,estado) VALUES("M01","2022/3/6","Do","A tiempo");
 INSERT INTO vuelos.instancias_vuelo (vuelo,fecha,dia,estado) VALUES("BA01","2022/3/6","Do","Demorado");
 INSERT INTO vuelos.instancias_vuelo (vuelo,fecha,dia,estado) VALUES("SJ01","2022/5/17","Ma","A tiempo");
 INSERT INTO vuelos.instancias_vuelo (vuelo,fecha,dia,estado) VALUES("M02","2022/9/22","Ju","Demorado");
 INSERT INTO vuelos.instancias_vuelo (vuelo,fecha,dia,estado) VALUES("PM01","2022/10/28","Vi","Cancelado");
 
-#Asientos Reservados NO TIENE DATOS
+#Asientos
 INSERT INTO vuelos.asientos_reservados (vuelo,fecha,clase,cantidad) VALUES("M02","2022/9/22","Primera Clase",9);
 INSERT INTO vuelos.asientos_reservados (vuelo,fecha,clase,cantidad) VALUES("PM01","2022/10/28","Tercera Clase",20);
 INSERT INTO vuelos.asientos_reservados (vuelo,fecha,clase,cantidad) VALUES("M01","2022/3/6","Segunda Clase",10);
@@ -95,14 +95,14 @@ INSERT INTO vuelos.posee (clase,comodidad) VALUES("Primera Clase",55);
 INSERT INTO vuelos.posee (clase,comodidad) VALUES("Segunda Clase",33);
 INSERT INTO vuelos.posee (clase,comodidad) VALUES("Tercera Clase",11);
 
-#Brinda NO TIENE DATOS
-INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(57350.00,44,"Segunda Clase","M01","Do");
-INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(79439.00,57,"Primera Clase","BA01","Do");
-INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(52000.00,21,"Segunda Clase","SJ01","Ma");
-INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(83590.00,34,"Primera Clase","M02","Ju");
-INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(32000.00,23,"Tercera Clase","PM01","Vi");
+#Brinda
+INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(57350.00,90,"Segunda Clase","M01","Do");
+INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(79439.00,180,"Primera Clase","BA01","Do");
+INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(52000.00,90,"Segunda Clase","SJ01","Ma");
+INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(83590.00,18,"Primera Clase","M02","Ju");
+INSERT INTO vuelos.brinda (precio,cant_asientos,clase,vuelo,dia) VALUES(32000.00,200,"Tercera Clase","PM01","Vi");
 
-#Reserva Vuelos Clase NO TIENE DATOS
+#Reserva Vuelos
 INSERT INTO vuelos.reserva_vuelo_clase (vuelo,fecha_vuelo,clase) VALUES("M01","2022/3/6","Segunda Clase");
 INSERT INTO vuelos.reserva_vuelo_clase (vuelo,fecha_vuelo,clase) VALUES("BA01","2022/3/6","Primera Clase");
 INSERT INTO vuelos.reserva_vuelo_clase (vuelo,fecha_vuelo,clase) VALUES("SJ01","2022/5/17","Segunda Clase");

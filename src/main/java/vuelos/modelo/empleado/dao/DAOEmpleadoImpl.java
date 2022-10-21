@@ -35,14 +35,14 @@ public class DAOEmpleadoImpl implements DAOEmpleado {
 	public EmpleadoBean recuperarEmpleado(int legajo) throws Exception {
 		logger.info("recupera el empleado que corresponde al legajo {}.", legajo);
 		ResultSet rs = null;
-		String sql = "SELECT * FROM empleados WHERE legajo="+legajo+"";
+		String sql = "SELECT * FROM empleados WHERE legajo='"+legajo+"'";
 		Statement select = conexion.createStatement();
 		rs = select.executeQuery(sql);
 		EmpleadoBean empleado = new EmpleadoBeanImpl();
 		if (rs.next()) {
 			empleado.setLegajo(rs.getInt("legajo"));
 			empleado.setPassword(rs.getString("password"));
-			empleado.setNroDocumento(rs.getInt("doc_tipo"));
+			empleado.setNroDocumento(rs.getInt("doc_nro"));
 			empleado.setTipoDocumento(rs.getString("doc_tipo"));
 			empleado.setApellido(rs.getString("apellido"));
 			empleado.setNombre(rs.getString("nombre"));
