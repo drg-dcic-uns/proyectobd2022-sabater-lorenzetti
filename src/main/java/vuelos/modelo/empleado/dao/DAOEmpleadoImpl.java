@@ -30,41 +30,37 @@ public class DAOEmpleadoImpl implements DAOEmpleado {
 	 *       
 	 *      Nota: para acceder a la B.D. utilice la propiedad "conexion" que ya tiene una conexión
 	 *      establecida con el servidor de B.D. (inicializada en el constructor DAOEmpleadoImpl(...)). 
+	 * @throws Exception 
 	 */	
 	@Override
 	public EmpleadoBean recuperarEmpleado(int legajo) throws Exception {
 		logger.info("recupera el empleado que corresponde al legajo {}.", legajo);
-		ResultSet rs = null;
-		String sql = "SELECT * FROM empleados WHERE legajo='"+legajo+"'";
-		Statement select = conexion.createStatement();
-		rs = select.executeQuery(sql);
 		EmpleadoBean empleado = new EmpleadoBeanImpl();
-		if (rs.next()) {
-			empleado.setLegajo(rs.getInt("legajo"));
-			empleado.setPassword(rs.getString("password"));
-			empleado.setNroDocumento(rs.getInt("doc_nro"));
-			empleado.setTipoDocumento(rs.getString("doc_tipo"));
-			empleado.setApellido(rs.getString("apellido"));
-			empleado.setNombre(rs.getString("nombre"));
-			empleado.setDireccion(rs.getString("direccion"));
-			empleado.setTelefono(rs.getString("telefono"));
+		try {
+			ResultSet rs = null;
+			String sql = "SELECT * FROM empleados WHERE legajo='"+legajo+"'";
+			Statement select = conexion.createStatement();
+			rs = select.executeQuery(sql);
+			if (rs.next()) {
+				empleado.setLegajo(rs.getInt("legajo"));
+				empleado.setPassword(rs.getString("password"));
+				empleado.setNroDocumento(rs.getInt("doc_nro"));
+				empleado.setTipoDocumento(rs.getString("doc_tipo"));
+				empleado.setApellido(rs.getString("apellido"));
+				empleado.setNombre(rs.getString("nombre"));
+				empleado.setDireccion(rs.getString("direccion"));
+				empleado.setTelefono(rs.getString("telefono"));
+			}
+			else {
+				empleado = null;
+			}
+		} catch (SQLException e) {
+			logger.error("SQLException: " + e.getMessage());
+			logger.error("SQLState: " + e.getSQLState());
+			logger.error("VendorError: " + e.getErrorCode());		   
+			throw new Exception("Error al recuperar el empleado");
 		}
-		/*
-		 * Datos estáticos de prueba. Quitar y reemplazar por código que recupera los datos reales.  
-		 */		
-		//empleado.setLegajo(9);
-		//empleado.setApellido("ApEmp9");
-		//empleado.setNombre("NomEmp9");
-		//empleado.setTipoDocumento("DNI");
-		//empleado.setNroDocumento(9);
-		//empleado.setDireccion("DirEmp9");
-		//empleado.setTelefono("999-9999");
-		//empleado.setCargo("Empleado de Prestamos");
-		//empleado.setPassword("45c48cce2e2d7fbdea1afc51c7c6ad26"); // md5(9);
-		//empleado.setNroSucursal(7);
-		
 		return empleado;
-		// Fin datos estáticos de prueba.
 	}
 
 }

@@ -56,22 +56,31 @@ public class ModeloEmpleadoImpl extends ModeloImpl implements ModeloEmpleado {
 	 *      En caso exitoso deberá registrar el legajo en la propiedad legajo y retornar true.
 	 *      Si la autenticación no es exitosa porque el legajo no es válido o el password es incorrecto
 	 *      deberá retornar falso y si hubo algún otro error deberá producir y propagar una excepción.
+	 * @throws Exception 
 	 */
 	
 	@Override
-	public boolean autenticarUsuarioAplicacion(String legajo, String password) throws Exception {
+	public boolean autenticarUsuarioAplicacion(String legajo, String password) throws Exception  {
 		logger.info("Se intenta autenticar el legajo {} con password {}", legajo, password);
-		ResultSet rs = null;
-		int l = Integer.valueOf(legajo);
-		String sql = "SELECT legajo,password FROM empleados where legajo = '"+l+"' AND password=md5('"+password+"');";
-		Statement select = conexion.createStatement();
-		rs = select.executeQuery(sql);
-		this.legajo = l;
-		return rs.next();
+		try {
+			ResultSet rs = null;
+			int l = Integer.valueOf(legajo);
+			String sql = "SELECT legajo,password FROM empleados where legajo = '"+l+"' AND password=md5('"+password+"');";
+			Statement select = conexion.createStatement();
+			rs = select.executeQuery(sql);
+			this.legajo = l;
+			return rs.next();
+		} catch (SQLException e) {
+			logger.error("SQLException: " + e.getMessage());
+			logger.error("SQLState: " + e.getSQLState());
+			logger.error("VendorError: " + e.getErrorCode());		   
+			throw new Exception("Error en el ingreso de la base de datos");
+		}
 	}
 	/** 
 	 * TODO(Hecho?) Debe retornar una lista de strings con los tipos de documentos. 
 	 *      Deberia propagar una excepción si hay algún error en la consulta.
+	 * @throws Exception 
 	 * @throws SQLException 
 	 */
 	
@@ -82,20 +91,22 @@ public class ModeloEmpleadoImpl extends ModeloImpl implements ModeloEmpleado {
 	 *  de la tabla de pasajeros
 	 */
 	@Override
-	public ArrayList<String> obtenerTiposDocumento() throws SQLException  {
+	public ArrayList<String> obtenerTiposDocumento() throws SQLException {
 		logger.info("recupera los tipos de documentos.");
 		ArrayList<String> tipos = new ArrayList<String>();
-		ResultSet rs = null;
-		String sql = "SELECT doc_tipo FROM empleados";
-		Statement select = conexion.createStatement();
-		rs = select.executeQuery(sql);
-		while(rs.next()) {
-			tipos.add(rs.getString("doc_tipo"));
+		try {
+			ResultSet rs = null;
+			String sql = "SELECT doc_tipo FROM empleados";
+			Statement select = conexion.createStatement();
+			rs = select.executeQuery(sql);
+			while(rs.next()) {
+				tipos.add(rs.getString("doc_tipo"));
+			}
+		} catch (SQLException e) {
+			logger.error("SQLException: " + e.getMessage());
+			logger.error("SQLState: " + e.getSQLState());
+			logger.error("VendorError: " + e.getErrorCode());	
 		}
-		//Datos prueba
-		//tipos.add("DNI");
-		//tipos.add("Pasaporte");
-		// Fin datos estáticos de prueba.
 		return tipos;
 	}		
 	
@@ -115,31 +126,31 @@ public class ModeloEmpleadoImpl extends ModeloImpl implements ModeloEmpleado {
 	 *      Deberia propagar una excepción si hay algún error en la consulta.
 	 *      
 	 *      Reemplazar el siguiente código de prueba por los datos obtenidos desde la BD.
+	 * @throws Exception 
 	 */	
 	@Override
 	public ArrayList<UbicacionesBean> recuperarUbicaciones() throws Exception {
 		logger.info("recupera las ciudades que tienen aeropuertos.");	
 		ArrayList<UbicacionesBean> ubicaciones = new ArrayList<UbicacionesBean>();
-		ResultSet rs = null;
-		String sql = "SELECT * FROM ubicaciones";
-		Statement select = conexion.createStatement();
-		rs = select.executeQuery(sql);
-		while(rs.next()) {
-			UbicacionesBean aux = new UbicacionesBeanImpl();
-			aux.setPais(rs.getString("pais"));
-			aux.setEstado(rs.getString("estado"));
-			aux.setCiudad(rs.getString("ciudad"));
-			aux.setHuso(rs.getInt("huso"));
-			ubicaciones.add(aux);
-		}
-		// Datos estáticos de prueba. Quitar y reemplazar por código que recupera las ubicaciones de la B.D. en una lista de UbicacionesBean		 
-		//DAOUbicacionesDatosPrueba.poblar();
-		//ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("bsas"));
-		//ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("chicago"));
-		//ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("barcelona"));
-		//ubicaciones.add(DAOUbicacionesDatosPrueba.obtenerUbicacion("cordoba"));	
-		// Fin datos estáticos de prueba.
-	
+		try {
+			ResultSet rs = null;
+			String sql = "SELECT * FROM ubicaciones";
+			Statement select = conexion.createStatement();
+			rs = select.executeQuery(sql);
+			while(rs.next()) {
+				UbicacionesBean aux = new UbicacionesBeanImpl();
+				aux.setPais(rs.getString("pais"));
+				aux.setEstado(rs.getString("estado"));
+				aux.setCiudad(rs.getString("ciudad"));
+				aux.setHuso(rs.getInt("huso"));
+				ubicaciones.add(aux);
+			}
+		} catch (SQLException e) {
+			logger.error("SQLException: " + e.getMessage());
+			logger.error("SQLState: " + e.getSQLState());
+			logger.error("VendorError: " + e.getErrorCode());		   
+			throw new Exception("Error al recuperar las ubicaciones");
+		}	
 		return ubicaciones;
 	}
 

@@ -1394,7 +1394,6 @@ public class VentanaEmpleadoImpl extends JFrame implements VentanaEmpleado {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			
 			}
 		});
 		
