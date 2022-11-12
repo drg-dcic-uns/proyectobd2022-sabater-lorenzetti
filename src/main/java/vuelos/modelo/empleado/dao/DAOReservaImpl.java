@@ -230,7 +230,7 @@ public class DAOReservaImpl implements DAOReserva {
 	public UbicacionesBean Conseguir_ubi(String pais,String estado,String ciudad) {
 		UbicacionesBean ubi = new UbicacionesBeanImpl();
 		try {
-			logger.info("Se recupera los datos de la instancia de vuelo.");
+			logger.info("Se recupera los datos de la ubicacion.");
 			ResultSet rs = null;
 			String sql = "SELECT huso FROM ubicaciones WHERE pais='"+pais+"' AND estado='"+estado+"' AND ciudad='"+ciudad+"'";
 			Statement select = conexion.createStatement();
@@ -347,7 +347,9 @@ public class DAOReservaImpl implements DAOReserva {
 				reserva.setEstado(rs.getString("estado"));
 				reserva.setPasajero(p);
 				reserva.setEmpleado(e);	
-				ArrayList<InstanciaVueloClaseBean> aux =  arregloInstancia(codigoReserva);		
+				ArrayList<InstanciaVueloClaseBean> aux =  arregloInstancia(codigoReserva);
+				if (aux.size()==2){reserva.setEsIdaVuelta(true);}
+				if (aux.size()==1){reserva.setEsIdaVuelta(false);}
 			}
 			else {
 				reserva = null;
