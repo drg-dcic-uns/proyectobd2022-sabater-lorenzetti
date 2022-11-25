@@ -12,6 +12,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//import Utils.Fechas;
 import vuelos.modelo.ModeloImpl;
 import vuelos.utils.Conexion;
 import vuelos.modelo.empleado.beans.DetalleVueloBean;
@@ -61,20 +62,24 @@ public class ModeloEmpleadoImpl extends ModeloImpl implements ModeloEmpleado {
 	
 	@Override
 	public boolean autenticarUsuarioAplicacion(String legajo, String password) throws Exception  {
-		logger.info("Se intenta autenticar el legajo {} con password {}", legajo, password);
-		try {
-			ResultSet rs = null;
-			int l = Integer.valueOf(legajo);
-			String sql = "SELECT legajo,password FROM empleados where legajo = '"+l+"' AND password=md5('"+password+"');";
-			Statement select = conexion.createStatement();
-			rs = select.executeQuery(sql);
-			this.legajo = l;
-			return rs.next();
-		} catch (SQLException e) {
-			logger.error("SQLException: " + e.getMessage());
-			logger.error("SQLState: " + e.getSQLState());
-			logger.error("VendorError: " + e.getErrorCode());		   
-			throw new Exception("Error en el ingreso de la base de datos");
+		logger.info("Se intenta autenticar el legajo {} con password {}", legajo, password);	
+		if(!(legajo.length() == 0) && !(password.length() == 0)) {
+			try {
+				ResultSet rs = null;
+				int l = Integer.valueOf(legajo);
+				String sql = "SELECT legajo,password FROM empleados where legajo = '"+l+"' AND password=md5('"+password+"');";
+				Statement select = conexion.createStatement();
+				rs = select.executeQuery(sql);
+				this.legajo = l;
+				return rs.next();
+			} catch (SQLException e) {
+				logger.error("SQLException: " + e.getMessage());
+				logger.error("SQLState: " + e.getSQLState());
+				logger.error("VendorError: " + e.getErrorCode());		   
+				throw new Exception("Error en el ingreso de la base de datos");
+			}
+		}else {
+			throw new Exception("Tienen que llenar el campo del legajo y la contraseña");
 		}
 	}
 	/** 
@@ -96,7 +101,7 @@ public class ModeloEmpleadoImpl extends ModeloImpl implements ModeloEmpleado {
 		ArrayList<String> tipos = new ArrayList<String>();
 		try {
 			ResultSet rs = null;
-			String sql = "SELECT doc_tipo FROM empleados";
+			String sql = "SELECT DISTINCT doc_tipo FROM empleados";
 			Statement select = conexion.createStatement();
 			rs = select.executeQuery(sql);
 			while(rs.next()) {

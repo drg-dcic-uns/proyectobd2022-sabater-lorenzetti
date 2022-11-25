@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
@@ -83,22 +84,24 @@ public class DAOReservaImpl implements DAOReserva {
 							   EmpleadoBean empleado) throws Exception {
 		logger.info("Realiza la reserva de solo ida con pasajero {}", pasajero.getNroDocumento());
 		int resultado = 0;
-		Fechas f = new Fechas();
-		try (CallableStatement cstmt = conexion.prepareCall("CALL PROCEDURE reservaSoloIda(?, ?, ?, ?, ?, ?)"))
+		try (CallableStatement cstmt = conexion.prepareCall("CALL reserva_ida(?, ?, ?, ?, ?, ?)"))
 		{
 			//Datos de entrada 
-			cstmt.setString("numeroVuelo",vuelo.getNroVuelo());
-			cstmt.setDate("fechaVuelo",f.convertirDateADateSQL(vuelo.getFechaVuelo()));
-			cstmt.setString("claseVuelo",detalleVuelo.getClase());
-			cstmt.setString("tipoDocPas", pasajero.getTipoDocumento());
-			cstmt.setInt("numDocPas", pasajero.getNroDocumento());
-			cstmt.setInt("legajoEmp", empleado.getLegajo());
+			cstmt.setString(1,vuelo.getNroVuelo());
+			cstmt.setDate(2,Fechas.convertirDateADateSQL(vuelo.getFechaVuelo()));
+			cstmt.setString(3,detalleVuelo.getClase());
+			cstmt.setString(4, pasajero.getTipoDocumento());
+			cstmt.setInt(5, pasajero.getNroDocumento());
+			cstmt.setInt(6, empleado.getLegajo());
+
+			cstmt.execute();	
 			
-			cstmt.execute();
+			ResultSet rs = cstmt.getResultSet();
 			
-			cstmt.registerOutParameter("numeroDeReserva", java.sql.Types.INTEGER);		
-			
-			resultado = cstmt.getInt("numeroDeReserva");
+			if(rs.next()) {
+				resultado = rs.getInt(1);
+				System.out.print(resultado);
+			}
 			
 		}
 		catch (SQLException ex){
