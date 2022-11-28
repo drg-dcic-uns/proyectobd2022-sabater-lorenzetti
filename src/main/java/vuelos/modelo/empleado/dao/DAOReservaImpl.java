@@ -84,23 +84,28 @@ public class DAOReservaImpl implements DAOReserva {
 							   EmpleadoBean empleado) throws Exception {
 		logger.info("Realiza la reserva de solo ida con pasajero {}", pasajero.getNroDocumento());
 		int resultado = 0;
-		try (CallableStatement cstmt = conexion.prepareCall("CALL reserva_ida(?, ?, ?, ?, ?, ?)"))
+		try (CallableStatement cstmt = conexion.prepareCall("CALL reservaSoloIda(?, ?, ?, ?, ?, ?, ?)"))
 		{
 			//Datos de entrada 
 			cstmt.setString(1,vuelo.getNroVuelo());
 			cstmt.setDate(2,Fechas.convertirDateADateSQL(vuelo.getFechaVuelo()));
-			cstmt.setString(3,detalleVuelo.getClase());
-			cstmt.setString(4, pasajero.getTipoDocumento());
-			cstmt.setInt(5, pasajero.getNroDocumento());
-			cstmt.setInt(6, empleado.getLegajo());
+			cstmt.setDate(3,Fechas.convertirDateADateSQL(vuelo.getFechaVuelo()));
+			cstmt.setString(4,detalleVuelo.getClase());
+			cstmt.setString(5, pasajero.getTipoDocumento());
+			cstmt.setInt(6, pasajero.getNroDocumento());
+			cstmt.setInt(7, empleado.getLegajo());
 
-			cstmt.execute();	
+			logger.info("La consulta se hace con {},{},{},{},{},{}",vuelo.getNroVuelo(),Fechas.convertirDateADateSQL(vuelo.getFechaVuelo()),detalleVuelo.getClase(),pasajero.getTipoDocumento(),pasajero.getNroDocumento(),empleado.getLegajo());
 			
+			cstmt.execute();	
 			ResultSet rs = cstmt.getResultSet();
 			
-			if(rs.next()) {
-				resultado = rs.getInt(1);
-				System.out.print(resultado);
+			if(cstmt.getMoreResults()) {
+				rs = cstmt.getResultSet();
+				if(rs.next()) {
+					resultado = rs.getInt(1);
+					logger.info("El numero de reserva es {}",resultado);
+				}
 			}
 			
 		}
@@ -159,27 +164,37 @@ public class DAOReservaImpl implements DAOReserva {
 				 				 EmpleadoBean empleado) throws Exception {
 		logger.info("Realiza la reserva de solo ida con pasajero {}", pasajero.getNroDocumento());
 		int resultado = 0;
-		try (CallableStatement cstmt = conexion.prepareCall("CALL PROCEDURE reservaSoloIda(?, ?, ?, ?, ?, ?, ?,?, ?, ?)"))
+		try (CallableStatement cstmt = conexion.prepareCall("CALL reservaIdaVuelta(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))
 		{
 			//Datos de entrada 
-			cstmt.setString("numeroVueloIda",vueloIda.getNroVuelo());
-			cstmt.setDate("fechaVueloIda",Fechas.convertirDateADateSQL(vueloIda.getFechaVuelo()));
-			cstmt.setString("claseVueloIda",detalleVueloIda.getClase());
+			cstmt.setString(1,vueloIda.getNroVuelo());
+			cstmt.setDate(2,Fechas.convertirDateADateSQL(vueloIda.getFechaVuelo()));
+			cstmt.setString(3,detalleVueloIda.getClase());
 			
-			cstmt.setString("numeroVueloVuelta",vueloVuelta.getNroVuelo());
-			cstmt.setDate("fechaVueloVuelta",Fechas.convertirDateADateSQL(vueloVuelta.getFechaVuelo()));
-			cstmt.setString("claseVueloVuelta",detalleVueloVuelta.getClase());
+			cstmt.setString(4,vueloVuelta.getNroVuelo());
+			cstmt.setDate(5,Fechas.convertirDateADateSQL(vueloVuelta.getFechaVuelo()));
+			cstmt.setString(6,detalleVueloVuelta.getClase());
 			
-			cstmt.setString("tipoDocPas", pasajero.getTipoDocumento());
-			cstmt.setInt("numDocPas", pasajero.getNroDocumento());
-			cstmt.setInt("legajoEmpIda", empleado.getLegajo());
-			cstmt.setInt("legajoEmpVuelta", empleado.getLegajo());
+			cstmt.setDate(7,Fechas.convertirDateADateSQL(vueloIda.getFechaVuelo()));
+			cstmt.setString(8, pasajero.getTipoDocumento());
+			cstmt.setInt(9, pasajero.getNroDocumento());
+			cstmt.setInt(10, empleado.getLegajo());
 			
-			cstmt.execute();
+			logger.info("La consulta se hace con {},{},{},{},{},{},{},{},{}",vueloIda.getNroVuelo(),Fechas.convertirDateADateSQL(vueloIda.getFechaVuelo()),detalleVueloIda.getClase(),vueloVuelta.getNroVuelo(),Fechas.convertirDateADateSQL(vueloVuelta.getFechaVuelo()),detalleVueloVuelta.getClase(),pasajero.getTipoDocumento(),pasajero.getNroDocumento(),empleado.getLegajo());
 			
-			cstmt.registerOutParameter("numeroDeReserva", java.sql.Types.INTEGER);		
+			cstmt.execute();	
+			ResultSet rs = cstmt.getResultSet();
 			
-			resultado = cstmt.getInt("numeroDeReserva");
+			if(cstmt.getMoreResults()) {
+				rs = cstmt.getResultSet();
+				if(cstmt.getMoreResults()) {
+					rs = cstmt.getResultSet();
+					if(rs.next()) {
+						resultado = rs.getInt(1);
+						logger.info("El numero de reserva es {}",resultado);
+					}
+				}
+			}
 		}
 		catch (SQLException ex){
 			logger.debug("Error al consultar la BD. SQLException: {}. SQLState: {}. VendorError: {}.", ex.getMessage(), ex.getSQLState(), ex.getErrorCode());
@@ -225,15 +240,15 @@ public class DAOReservaImpl implements DAOReserva {
 			logger.error("SQLException: " + e.getMessage());
 			logger.error("SQLState: " + e.getSQLState());
 			logger.error("VendorError: " + e.getErrorCode());		   
-			throw new Exception("Error al recuperar las ubicaciones");
+			throw new Exception("Error al recuperar el areopuerto");
 		}
 		return aero;
 	}
 	
-	public UbicacionesBean Conseguir_ubi(String pais,String estado,String ciudad) {
+	public UbicacionesBean Conseguir_ubi(String pais,String estado,String ciudad) throws Exception {
 		UbicacionesBean ubi = new UbicacionesBeanImpl();
+		logger.info("Se recupera los datos de la ubicacion.");
 		try {
-			logger.info("Se recupera los datos de la ubicacion.");
 			ResultSet rs = null;
 			String sql = "SELECT huso FROM ubicaciones WHERE pais='"+pais+"' AND estado='"+estado+"' AND ciudad='"+ciudad+"'";
 			Statement select = conexion.createStatement();
@@ -247,20 +262,21 @@ public class DAOReservaImpl implements DAOReserva {
 		} catch (SQLException e) {
 			logger.error("SQLException: " + e.getMessage());
 			logger.error("SQLState: " + e.getSQLState());
-			logger.error("VendorError: " + e.getErrorCode());		   
+			logger.error("VendorError: " + e.getErrorCode());		
+			throw new Exception("Error al recuperar la ubicacion");
 		} 
 		return ubi;
 	}
 	
 	public InstanciaVueloBean instancia_vuelo(String vuelo,Date d) throws Exception {
+		InstanciaVueloBean aux = new InstanciaVueloBeanImpl();
+		logger.info("Se recupera los datos de la instancia de vuelo.");
 		try {
-			logger.info("Se recupera los datos de la instancia de vuelo.");
 			ResultSet rs = null;
 			String sql = "SELECT DISTINCT pais_sale,pais_llega,codigo_aero_sale,nombre_aero_sale,codigo_aero_llega,nombre_aero_llega,nro_vuelo,modelo,dia_sale,hora_sale,hora_llega,tiempo_estimado,fecha,ciudad_llega,ciudad_sale,estado_sale,estado_llega FROM vuelos_disponibles WHERE fecha='"+Fechas.convertirDateADateSQL(d)+"' AND nro_vuelo='"+vuelo+"'";
 			Statement select = conexion.createStatement();
 			rs = select.executeQuery(sql);
 			while(rs.next()) {
-				InstanciaVueloBean aux = new InstanciaVueloBeanImpl();
 				aux.setNroVuelo(rs.getString("nro_vuelo"));
 				aux.setModelo(rs.getString("modelo"));
 				aux.setDiaSalida(rs.getString("dia_sale"));
@@ -276,9 +292,10 @@ public class DAOReservaImpl implements DAOReserva {
 		} catch (SQLException e) {
 			logger.error("SQLException: " + e.getMessage());
 			logger.error("SQLState: " + e.getSQLState());
-			logger.error("VendorError: " + e.getErrorCode());		   
+			logger.error("VendorError: " + e.getErrorCode());	
+			throw new Exception("Error al recuperar la instancia de vuelo");
 		} 
-		return null;
+		return aux;
 	} 
 	
 	public DetalleVueloBean instacia_detalle(InstanciaVueloBean vuelo) throws Exception   {
@@ -305,11 +322,11 @@ public class DAOReservaImpl implements DAOReserva {
 	}
 	
 	public ArrayList<InstanciaVueloClaseBean> arregloInstancia(int codigo) throws Exception{
+		logger.info("Se crea el arreglo de la instancias de vuelo con el codigo {}",codigo);
 		ArrayList<InstanciaVueloClaseBean> resultado = new ArrayList<InstanciaVueloClaseBean>();
 		try {
-			logger.info("Se crea el arreglo de la instancias de vuelo");
 			ResultSet rs = null;
-			String sql = "SELECT vuelo,clase,fecha_vuelo FROM reserva_vuelo_clase WHERE numero = "+codigo+";";
+			String sql = "SELECT vuelo,clase,fecha_vuelo FROM reserva_vuelo_clase WHERE numero="+codigo+";";
 			Statement select = conexion.createStatement();
 			rs = select.executeQuery(sql);
 			while(rs.next()) {
@@ -324,7 +341,7 @@ public class DAOReservaImpl implements DAOReserva {
 			logger.error("SQLException: " + e.getMessage());
 			logger.error("SQLState: " + e.getSQLState());
 			logger.error("VendorError: " + e.getErrorCode());		   
-			throw new Exception("Error al recuperar reserva");
+			throw new Exception("Error al recuperar el arreclo instancia");
 		}	
 		return resultado;
 	}
@@ -333,24 +350,24 @@ public class DAOReservaImpl implements DAOReserva {
 	public ReservaBean recuperarReserva(int codigoReserva) throws Exception {	
 		logger.info("Solicita recuperar información de la reserva con codigo {}", codigoReserva);
 		ReservaBean reserva = new ReservaBeanImpl();
-		try {
-			DAOEmpleado de = new DAOEmpleadoImpl(conexion);
-			DAOPasajero dp = new DAOPasajeroImpl(conexion);
-			ResultSet rs = null;
-			String sql = "SELECT * FROM reservas WHERE numero = '"+codigoReserva+"'; ";
+		try {	
+			ResultSet rs;
+			String sql = "SELECT * FROM reservas WHERE numero="+codigoReserva+"";
 			Statement select = conexion.createStatement();
 			rs = select.executeQuery(sql);
-			Fechas f = new Fechas();
-			PasajeroBean p = dp.recuperarPasajero(rs.getString("doc_tipo"),rs.getInt("doc_nro"));
-			EmpleadoBean e = de.recuperarEmpleado(rs.getInt("legajo"));
 			if (rs.next()) {
+				DAOEmpleado de = new DAOEmpleadoImpl(conexion);
+				DAOPasajero dp = new DAOPasajeroImpl(conexion);
+				PasajeroBean p = dp.recuperarPasajero(rs.getString("doc_tipo"),rs.getInt("doc_nro"));
+				EmpleadoBean e = de.recuperarEmpleado(rs.getInt("legajo"));
 				reserva.setNumero(rs.getInt("numero"));
-				reserva.setFecha(f.convertirDateADateSQL(rs.getDate("fecha")));
-				reserva.setVencimiento(f.convertirDateADateSQL(rs.getDate("vencimiento")));
+				reserva.setFecha(Fechas.convertirDateADateSQL(rs.getDate("fecha")));
+				reserva.setVencimiento(Fechas.convertirDateADateSQL(rs.getDate("vencimiento")));
 				reserva.setEstado(rs.getString("estado"));
 				reserva.setPasajero(p);
 				reserva.setEmpleado(e);	
 				ArrayList<InstanciaVueloClaseBean> aux =  arregloInstancia(codigoReserva);
+				reserva.setVuelosClase(aux);
 				if (aux.size()==2){reserva.setEsIdaVuelta(true);}
 				if (aux.size()==1){reserva.setEsIdaVuelta(false);}
 			}

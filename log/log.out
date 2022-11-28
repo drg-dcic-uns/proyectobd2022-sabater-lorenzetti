@@ -8765,3 +8765,2656 @@ Saliendo de la aplicación.
 Se cierra la conexión a la BD.
 Se intenta cerrar la conexión activa
 Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+Solicita recuperar información de la reserva con codigo 0
+SQLException: Illegal operation on empty result set.
+SQLState: S1000
+VendorError: 0
+Hubo un error al realizar la reserva de solo ida: java.lang.Exception: Error al recuperar reserva
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.recuperarReserva(DAOReservaImpl.java:364)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:201)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB1,2023-01-02,Primera,DNI,1,101
+Hubo un error al realizar la reserva de solo ida: java.lang.NumberFormatException: For input string: "SQLEXCEPTION!, transacci￢ﾔﾜ￢ﾔﾂn abortada"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.base/java.lang.Double.parseDouble(Double.java:651)
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.getDouble(MysqlTextValueDecoder.java:240)
+	at com.mysql.cj.result.AbstractNumericValueFactory.createFromBytes(AbstractNumericValueFactory.java:57)
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeByteArray(MysqlTextValueDecoder.java:134)
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:133)
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:241)
+	at com.mysql.cj.protocol.a.result.TextBufferRow.getValue(TextBufferRow.java:132)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1296)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:797)
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.reservarSoloIda(DAOReservaImpl.java:105)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:199)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:true fechaDesde:2 fechaHasta:2 Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida y vuelta
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Buenos Aires - Buenos Aires a Argentina - Cordoba - Cordoba.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+La cantidad de vuelos ida es 2 y los vuelos de vuelta es 2
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida y vuelta
+Carga la tabla de IDA.
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de IDA seleccionado para un vuelo de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo BC1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de vuelta.
+Recupera la cantidad de asientos y precio del vuelo BC1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo BC1
+Carga el detalle tabla de detalle de Vuelta en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de VUELTA seleccionado para un vuelo de Ida y Vuelta.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva IDA y VUELTA.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de ida y vuelta
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva de ida y vuelta
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB1,2023-01-02,Primera,BC1,2023-01-02,Primera,DNI,1,101
+Error al consultar la BD. SQLException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PROCEDURE reservaSoloIda('CB1', '2023-01-02', 'Primera', 'BC1', '2023-01-02', 'P' at line 1. SQLState: 42000. VendorError: 1064.
+Hubo un error al realizar la reserva de ida y vuelta: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PROCEDURE reservaSoloIda('CB1', '2023-01-02', 'Primera', 'BC1', '2023-01-02', 'P' at line 1
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB1,2023-01-02,Turista,DNI,1,101
+Error al consultar la BD. SQLException: PROCEDURE vuelos.reserva_ida does not exist. SQLState: 42000. VendorError: 1305.
+Hubo un error al realizar la reserva de solo ida: java.sql.SQLSyntaxErrorException: PROCEDURE vuelos.reserva_ida does not exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.mysql.cj.jdbc.CallableStatement.execute(CallableStatement.java:845)
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.reservarSoloIda(DAOReservaImpl.java:100)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:199)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB1,2023-01-02,Turista,DNI,1,101
+El numero de reserva es 18
+Solicita recuperar información de la reserva con codigo 18
+SQLException: Before start of result set
+SQLState: S1000
+VendorError: 0
+Hubo un error al realizar la reserva de solo ida: java.lang.Exception: Error al recuperar reserva
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.recuperarReserva(DAOReservaImpl.java:370)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:201)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Se solicita comenzar el proceso de reserva.
+Crea una ventana modal informando sobre el mensaje.
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB1,2023-01-02,Turista,DNI,1,101
+El numero de reserva es 19
+Solicita recuperar información de la reserva con codigo 19
+SQLException: Before start of result set
+SQLState: S1000
+VendorError: 0
+Hubo un error al realizar la reserva de solo ida: java.lang.Exception: Error al recuperar reserva
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.recuperarReserva(DAOReservaImpl.java:372)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:201)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 2
+Solicita al DAO un pasajero con tipo DNI y nro 2
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 2
+La consulta se hace con CB1,2023-01-02,Turista,DNI,2,101
+El numero de reserva es 20
+Solicita recuperar información de la reserva con codigo 20
+SQLException: Before start of result set
+SQLState: S1000
+VendorError: 0
+Hubo un error al realizar la reserva de solo ida: java.lang.Exception: Error al recuperar reserva
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.recuperarReserva(DAOReservaImpl.java:372)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:201)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 2
+Solicita al DAO un pasajero con tipo DNI y nro 2
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 2
+La consulta se hace con CB1,2023-01-02,Primera,DNI,2,101
+El numero de reserva es 21
+Solicita recuperar información de la reserva con codigo 21
+SQLException: Before start of result set
+SQLState: S1000
+VendorError: 0
+Hubo un error al realizar la reserva de solo ida: java.lang.Exception: Error al recuperar reserva
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.recuperarReserva(DAOReservaImpl.java:372)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:201)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB1,2023-01-02,Ejecutiva,DNI,1,101
+El numero de reserva es 22
+Solicita recuperar información de la reserva con codigo 22
+SQLException: Before start of result set
+SQLState: S1000
+VendorError: 0
+Hubo un error al realizar la reserva de solo ida: java.lang.Exception: Error al recuperar reserva
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.recuperarReserva(DAOReservaImpl.java:373)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:201)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 2
+Solicita al DAO un pasajero con tipo DNI y nro 2
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 2
+La consulta se hace con CB2,2023-01-02,Turista,DNI,2,101
+El numero de reserva es 23
+Solicita recuperar información de la reserva con codigo 23
+SQLException: Before start of result set
+SQLState: S1000
+VendorError: 0
+Hubo un error al realizar la reserva de solo ida: java.lang.Exception: Error al recuperar reserva
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.recuperarReserva(DAOReservaImpl.java:373)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:201)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB2,2023-01-02,Turista,DNI,1,101
+El numero de reserva es 24
+Solicita recuperar información de la reserva con codigo 24
+SQLException: Before start of result set
+SQLState: S1000
+VendorError: 0
+Hubo un error al realizar la reserva de solo ida: java.lang.Exception: Error al recuperar reserva
+	at vuelos.modelo.empleado.dao.DAOReservaImpl.recuperarReserva(DAOReservaImpl.java:374)
+	at vuelos.modelo.empleado.ModeloEmpleadoImpl.reservarSoloIda(ModeloEmpleadoImpl.java:201)
+	at vuelos.controlador.ControladorEmpleadoImpl.reservar(ControladorEmpleadoImpl.java:406)
+	at vuelos.vista.empleado.VentanaEmpleadoImpl$25.actionPerformed(VentanaEmpleadoImpl.java:1607)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2313)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:405)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB1,2023-01-02,Primera,DNI,1,101
+El numero de reserva es 25
+Solicita recuperar información de la reserva con codigo 25
+Entre aca
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Se crea el arreglo de la instancias de vuelo con el codigo 25
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+recupera los detalles de vuelo pasados por parametros.
+Realizó la reserva y solicita que la ventana muestre la info
+Se solicita mostrar la reserva cuyo estado es En espera
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 2
+Solicita al DAO un pasajero con tipo DNI y nro 2
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 2
+La consulta se hace con CB1,2023-01-02,Ejecutiva,DNI,2,101
+El numero de reserva es 26
+Solicita recuperar información de la reserva con codigo 26
+Entre aca
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Se crea el arreglo de la instancias de vuelo con el codigo 26
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+recupera los detalles de vuelo pasados por parametros.
+Realizó la reserva y solicita que la ventana muestre la info
+Se solicita mostrar la reserva cuyo estado es Confirmada
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 3
+Solicita al DAO un pasajero con tipo DNI y nro 3
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 3
+La consulta se hace con CB2,2023-01-02,Primera,DNI,3,101
+El numero de reserva es 27
+Solicita recuperar información de la reserva con codigo 27
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Realizó la reserva y solicita que la ventana muestre la info
+Se solicita mostrar la reserva cuyo estado es Confirmada
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB2,2023-01-02,Turista,DNI,1,101
+El numero de reserva es 28
+Solicita recuperar información de la reserva con codigo 28
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Se crea el arreglo de la instancias de vuelo con el codigo 28
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+recupera los detalles de vuelo pasados por parametros.
+Realizó la reserva y solicita que la ventana muestre la info
+Se solicita mostrar la reserva cuyo estado es Confirmada
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:true fechaDesde:2 fechaHasta:2 Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida y vuelta
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Buenos Aires - Buenos Aires a Argentina - Cordoba - Cordoba.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+La cantidad de vuelos ida es 2 y los vuelos de vuelta es 2
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida y vuelta
+Carga la tabla de IDA.
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de IDA seleccionado para un vuelo de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo BC1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de vuelta.
+Recupera la cantidad de asientos y precio del vuelo BC1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo BC1
+Carga el detalle tabla de detalle de Vuelta en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de VUELTA seleccionado para un vuelo de Ida y Vuelta.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva IDA y VUELTA.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 1
+Solicita al DAO un pasajero con tipo DNI y nro 1
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de ida y vuelta
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva de ida y vuelta
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 1
+La consulta se hace con CB2,2023-01-02,Primera,BC1,2023-01-02,Ejecutiva,DNI,1,101
+Error al consultar la BD. SQLException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PROCEDURE reservaIdaVuelta('CB2', '2023-01-02', 'Primera', 'BC1', '2023-01-02', ' at line 1. SQLState: 42000. VendorError: 1064.
+Hubo un error al realizar la reserva de ida y vuelta: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PROCEDURE reservaIdaVuelta('CB2', '2023-01-02', 'Primera', 'BC1', '2023-01-02', ' at line 1
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:true fechaDesde:2 fechaHasta:2 Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida y vuelta
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Buenos Aires - Buenos Aires a Argentina - Cordoba - Cordoba.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+La cantidad de vuelos ida es 2 y los vuelos de vuelta es 2
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida y vuelta
+Carga la tabla de IDA.
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de IDA seleccionado para un vuelo de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo BC2 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de vuelta.
+Recupera la cantidad de asientos y precio del vuelo BC2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo BC2
+Carga el detalle tabla de detalle de Vuelta en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de VUELTA seleccionado para un vuelo de Ida y Vuelta.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva IDA y VUELTA.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 2
+Solicita al DAO un pasajero con tipo DNI y nro 2
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de ida y vuelta
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva de ida y vuelta
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 2
+La consulta se hace con CB2,2023-01-02,Primera,BC2,2023-01-02,Primera,DNI,2,101
+El numero de reserva es 0
+Solicita recuperar información de la reserva con codigo 0
+Realizó la reserva y solicita que la ventana muestre la info
+Hubo un error al realizar la reserva de ida y vuelta: Cannot invoke "vuelos.modelo.empleado.beans.ReservaBean.getEstado()" because "reserva" is null
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:true fechaDesde:2 fechaHasta:2 Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida y vuelta
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Buenos Aires - Buenos Aires a Argentina - Cordoba - Cordoba.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+La cantidad de vuelos ida es 2 y los vuelos de vuelta es 2
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida y vuelta
+Carga la tabla de IDA.
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo BC1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de vuelta.
+Recupera la cantidad de asientos y precio del vuelo BC1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo BC1
+Carga el detalle tabla de detalle de Vuelta en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de VUELTA seleccionado para un vuelo de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de IDA seleccionado para un vuelo de Ida y Vuelta.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva IDA y VUELTA.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 2
+Solicita al DAO un pasajero con tipo DNI y nro 2
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de ida y vuelta
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva de ida y vuelta
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 2
+La consulta se hace con CB2,2023-01-02,Turista,BC1,2023-01-02,Ejecutiva,DNI,2,101
+El numero de reserva es 31
+Solicita recuperar información de la reserva con codigo 31
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Se crea el arreglo de la instancias de vuelo con el codigo 31
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+recupera los detalles de vuelo pasados por parametros.
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+recupera los detalles de vuelo pasados por parametros.
+Realizó la reserva y solicita que la ventana muestre la info
+Se solicita mostrar la reserva cuyo estado es En espera
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 2
+Solicita al DAO un pasajero con tipo DNI y nro 2
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 2
+La consulta se hace con CB1,2023-01-02,Turista,DNI,2,101
+El numero de reserva es 32
+Solicita recuperar información de la reserva con codigo 32
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Se crea el arreglo de la instancias de vuelo con el codigo 32
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+recupera los detalles de vuelo pasados por parametros.
+Realizó la reserva y solicita que la ventana muestre la info
+Se solicita mostrar la reserva cuyo estado es En espera
+Ejecuta el listener de buscar vuelos disponibles.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+debe informar al controlador para que recupere la info del detalle
+Se deseleccionó el vuelo
+Solicita información de vuelos disponibles: esIdaVuelta:true fechaDesde:2 fechaHasta:2 Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida y vuelta
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Buenos Aires - Buenos Aires a Argentina - Cordoba - Cordoba.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+La cantidad de vuelos ida es 2 y los vuelos de vuelta es 2
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida y vuelta
+Carga la tabla de IDA.
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de IDA seleccionado para un vuelo de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo BC1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de vuelta.
+Recupera la cantidad de asientos y precio del vuelo BC1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo BC1
+Carga el detalle tabla de detalle de Vuelta en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de VUELTA seleccionado para un vuelo de Ida y Vuelta.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva IDA y VUELTA.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 3
+Solicita al DAO un pasajero con tipo DNI y nro 3
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de ida y vuelta
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva de ida y vuelta
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 3
+La consulta se hace con CB2,2023-01-02,Primera,BC1,2023-01-02,Ejecutiva,DNI,3,101
+El numero de reserva es 33
+Solicita recuperar información de la reserva con codigo 33
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Se crea el arreglo de la instancias de vuelo con el codigo 33
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+recupera los detalles de vuelo pasados por parametros.
+SQLException: Data truncation: DECIMAL UNSIGNED value is out of range in '((`vuelos`.`brinda`.`cant_asientos` + (`vuelos`.`clase`.`porcentaje` * `vuelos`.`brinda`.`cant_asientos`)) - `vuelos`.`asientos`.`cantidad`)'
+SQLState: 22001
+VendorError: 1690
+Hubo un error al realizar la reserva de ida y vuelta: Error al recuperar los detalles de vuelo
+Crea una ventana modal informando sobre el mensaje.
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva de ida y vuelta
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 3
+La consulta se hace con CB2,2023-01-02,Primera,BC1,2023-01-02,Ejecutiva,DNI,3,101
+El numero de reserva es -1
+Solicita recuperar información de la reserva con codigo -1
+Realizó la reserva y solicita que la ventana muestre la info
+Hubo un error al realizar la reserva de ida y vuelta: Cannot invoke "vuelos.modelo.empleado.beans.ReservaBean.getEstado()" because "reserva" is null
+Crea una ventana modal informando sobre el mensaje.
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:true fechaDesde:2 fechaHasta:2 Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida y vuelta
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Buenos Aires - Buenos Aires a Argentina - Cordoba - Cordoba.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+La cantidad de vuelos ida es 2 y los vuelos de vuelta es 2
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida y vuelta
+Carga la tabla de IDA.
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de IDA en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de IDA seleccionado para un vuelo de Ida y Vuelta.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo BC1 con fecha 2023-01-02 para ida y vuelta sobre el vuelo de vuelta.
+Recupera la cantidad de asientos y precio del vuelo BC1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo BC1
+Carga el detalle tabla de detalle de Vuelta en viaje de Ida y Vuelta.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle del vuelo de VUELTA seleccionado para un vuelo de Ida y Vuelta.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva IDA y VUELTA.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 3
+Solicita al DAO un pasajero con tipo DNI y nro 3
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de ida y vuelta
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva de ida y vuelta
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 3
+La consulta se hace con CB1,2023-01-02,Ejecutiva,BC1,2023-01-02,Ejecutiva,DNI,3,101
+El numero de reserva es 17
+Solicita recuperar información de la reserva con codigo 17
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Se crea el arreglo de la instancias de vuelo con el codigo 17
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+recupera los detalles de vuelo pasados por parametros.
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+recupera los detalles de vuelo pasados por parametros.
+Realizó la reserva y solicita que la ventana muestre la info
+Se solicita mostrar la reserva cuyo estado es Confirmado
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
+Se inicia la aplicación.
+Creación de la ventana de login
+Se registran los listeners.
+Se inicia la carga de parametros para conectar con la BD.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se inicializa la ventana de login.
+se registra el controlador.
+se muestra la ventana.
+Intenta ingresar como Empleado con legajo 101, password emp101
+Recupera el usuario de BD para Empleado para poder conectarse con los permisos de dicho usuario.
+Ingresa a recuperar el usuarioBD y passwordBD para acceder a la BD del usuario Empleado
+usuario empleado, password empleado
+Se crea el modelo Empleado.
+Recuperación de los datos para la conexión con la BD
+Se intenta leer el archivo de propiedades cfg/conexionBD.properties
+se cargó exitosamente
+Parámetros de conexión: jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires
+Se establece la conexión a la BD.
+Parametros de conexion: url= jdbc:mysql://localhost:3306/vuelos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Argentina/Buenos_Aires, user=empleado, pass=empleado
+Se establece la conexión con la BD
+Se intenta autenticar el legajo 101 con password emp101
+Empleado 101 autenticado
+Inicializacion de la ventana del Empleado
+Se registran los listeners.
+Se crea el controlador del Empleado.
+Transfiere el control al nuevo controlador
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Se registra al empleado Apellido_Emp101, Nombre_Emp101 con legajo 101
+muestra la ventana
+Recuperar del modelo los destinos posibles
+recupera las ciudades que tienen aeropuertos.
+informar a la ventana los destinos posibles
+Carga los combos de ciudades con las 5 ubicaciones recuperados
+Muestra el panel de consulta/reserva de vuelos.
+Informa a la vista que puede eliminar la ventana de login.
+Eliminación de la ventana de login.
+Ejecuta el listener de buscar vuelos disponibles.
+Solicita información de vuelos disponibles: esIdaVuelta:false fechaDesde:2 fechaHasta:null Origen:Argentina - Cordoba - Cordoba Destino:Argentina - Buenos Aires - Buenos Aires.
+Se solicita quitar todas las selecciones.
+Solicita información de vuelos disponibles de ida
+Recupera la lista de vuelos disponibles para la fecha Mon Jan 02 00:00:00 ART 2023 desde Argentina - Cordoba - Cordoba a Argentina - Buenos Aires - Buenos Aires.
+Se recupera los datos de los vuelos disponibles
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+La cantidad de vuelos recuperados es 2 
+Se solicita a la ventana mostrar la información de 2 vuelos para viaje de ida
+Carga la tabla de IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB2 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB2 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 2 clases para el vuelo CB2
+Carga el detalle tabla de detalle de solo IDA.
+debe informar al controlador para que recupere la info del detalle
+Solicita detalle del vuelo CB1 con fecha 2023-01-02 para un viaje de ida.
+Recupera la cantidad de asientos y precio del vuelo CB1 .
+recupera los detalles de vuelo pasados por parametros.
+Se recuperaron 3 clases para el vuelo CB1
+Carga el detalle tabla de detalle de solo IDA.
+se selecciono una clase o se cambio la seleccion de vuelo y se actualizaron las clases (deseleccion)
+Se actualiza el detalle seleccionada para un vuelo de Solo Ida.
+Valida que haya seleccionado todo e informa a la ventana que muestre la pantalla de reserva.
+recupera los tipos de documentos.
+El controlador solicitó que se muestre la pantalla para realizar una reserva.
+Carga el combo con los 1 tipos de documento recuperados
+Busca al pasajero DNI 2
+Solicita al DAO un pasajero con tipo DNI y nro 2
+El DAO retorna al pasajero null null
+La ventana muestra al pasajero.
+Se muestra al pasajero en el panel de solo ida
+Se solicita comenzar el proceso de reserva.
+Se solicita al modelo realizar una reserva solo ida
+Solicita al DAO un empleado con legajo 101
+recupera el empleado que corresponde al legajo 101.
+Realiza la reserva de solo ida con pasajero 2
+La consulta se hace con CB1,2023-01-02,Primera,DNI,2,101
+El numero de reserva es 18
+Solicita recuperar información de la reserva con codigo 18
+El DAO retorna al pasajero null null
+recupera el empleado que corresponde al legajo 101.
+Se crea el arreglo de la instancias de vuelo con el codigo 18
+Se recupera los datos de la instancia de vuelo.
+Se recupera los datos de la ubicacion.
+Se recupera los datos de la ubicacion.
+Se recupera los datos del aeropuerto.
+AEP
+Se recupera los datos del aeropuerto.
+COR
+recupera los detalles de vuelo pasados por parametros.
+Realizó la reserva y solicita que la ventana muestre la info
+Se solicita mostrar la reserva cuyo estado es Confirmada
+Saliendo de la aplicación.
+Se cierra la conexión a la BD.
+Se intenta cerrar la conexión activa
+Eliminación de la ventana.
