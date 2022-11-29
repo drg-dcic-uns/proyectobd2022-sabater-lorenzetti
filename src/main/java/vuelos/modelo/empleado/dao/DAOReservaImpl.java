@@ -84,16 +84,15 @@ public class DAOReservaImpl implements DAOReserva {
 							   EmpleadoBean empleado) throws Exception {
 		logger.info("Realiza la reserva de solo ida con pasajero {}", pasajero.getNroDocumento());
 		int resultado = 0;
-		try (CallableStatement cstmt = conexion.prepareCall("CALL reservaSoloIda(?, ?, ?, ?, ?, ?, ?)"))
+		try (CallableStatement cstmt = conexion.prepareCall("CALL reserva_ida(?, ?, ?, ?, ?, ?)"))
 		{
 			//Datos de entrada 
 			cstmt.setString(1,vuelo.getNroVuelo());
 			cstmt.setDate(2,Fechas.convertirDateADateSQL(vuelo.getFechaVuelo()));
-			cstmt.setDate(3,Fechas.convertirDateADateSQL(vuelo.getFechaVuelo()));
-			cstmt.setString(4,detalleVuelo.getClase());
-			cstmt.setString(5, pasajero.getTipoDocumento());
-			cstmt.setInt(6, pasajero.getNroDocumento());
-			cstmt.setInt(7, empleado.getLegajo());
+			cstmt.setString(3,detalleVuelo.getClase());
+			cstmt.setString(4, pasajero.getTipoDocumento());
+			cstmt.setInt(5, pasajero.getNroDocumento());
+			cstmt.setInt(6, empleado.getLegajo());
 
 			logger.info("La consulta se hace con {},{},{},{},{},{}",vuelo.getNroVuelo(),Fechas.convertirDateADateSQL(vuelo.getFechaVuelo()),detalleVuelo.getClase(),pasajero.getTipoDocumento(),pasajero.getNroDocumento(),empleado.getLegajo());
 			
@@ -164,7 +163,7 @@ public class DAOReservaImpl implements DAOReserva {
 				 				 EmpleadoBean empleado) throws Exception {
 		logger.info("Realiza la reserva de solo ida con pasajero {}", pasajero.getNroDocumento());
 		int resultado = 0;
-		try (CallableStatement cstmt = conexion.prepareCall("CALL reservaIdaVuelta(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))
+		try (CallableStatement cstmt = conexion.prepareCall("CALL reserva_ida_vuelta(?, ?, ?, ?, ?, ?, ?, ?, ?)"))
 		{
 			//Datos de entrada 
 			cstmt.setString(1,vueloIda.getNroVuelo());
@@ -175,10 +174,10 @@ public class DAOReservaImpl implements DAOReserva {
 			cstmt.setDate(5,Fechas.convertirDateADateSQL(vueloVuelta.getFechaVuelo()));
 			cstmt.setString(6,detalleVueloVuelta.getClase());
 			
-			cstmt.setDate(7,Fechas.convertirDateADateSQL(vueloIda.getFechaVuelo()));
-			cstmt.setString(8, pasajero.getTipoDocumento());
-			cstmt.setInt(9, pasajero.getNroDocumento());
-			cstmt.setInt(10, empleado.getLegajo());
+
+			cstmt.setString(7, pasajero.getTipoDocumento());
+			cstmt.setInt(8, pasajero.getNroDocumento());
+			cstmt.setInt(9, empleado.getLegajo());
 			
 			logger.info("La consulta se hace con {},{},{},{},{},{},{},{},{}",vueloIda.getNroVuelo(),Fechas.convertirDateADateSQL(vueloIda.getFechaVuelo()),detalleVueloIda.getClase(),vueloVuelta.getNroVuelo(),Fechas.convertirDateADateSQL(vueloVuelta.getFechaVuelo()),detalleVueloVuelta.getClase(),pasajero.getTipoDocumento(),pasajero.getNroDocumento(),empleado.getLegajo());
 			
